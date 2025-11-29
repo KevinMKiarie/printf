@@ -143,7 +143,7 @@ export default function PaymentVoucher() {
 
   return (
     <div className="min-h-screen bg-gray-50 p-4 md:p-8">
-      <div className="max-w-[90%] mx-auto">
+      <div className="max-w-[95%] mx-auto">
         <h1 className="text-3xl font-bold text-gray-900 mb-8">Payment Voucher Form</h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -326,85 +326,95 @@ export default function PaymentVoucher() {
               <div ref={printRef} className="border-2 border-black p-4 bg-white">
                 <h2 className="text-center text-xl font-bold mb-4 tracking-[4px] text-black">PAYMENT VOUCHER</h2>
 
-                <div className="grid grid-cols-2 gap-4 mb-3 pb-3 border-b border-gray-300">
+                {/* Voucher No. and Date */}
+                <div className="grid grid-cols-2 gap-4 mb-3 pb-3">
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Voucher No.</span>
-                    <span className="text-sm py-1 b border-gray-800 min-h-[28px] text-black">{formData.voucherNo || '\u00A0'}</span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-7 text-black">{formData.voucherNo || '\u00A0'}</span>
                   </div>
+                  <div className="flex flex-col">
+                    <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Date</span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-7 text-black">{formData.preparedDate || '\u00A0'}</span>
+                  </div>
+                </div>
+
+                {/* Head of Account, Paid To, Being */}
+                <div className="mb-3 pb-3 border-b border-gray-300 gap-4 flex flex-col">
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Head of Account</span>
-                    <span className="text-sm py-1  border-gray-800 min-h-[28px] text-black">{formData.headOfAccount || '\u00A0'}</span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-7 text-black">{formData.headOfAccount || '\u00A0'}</span>
                   </div>
-                </div>
-
-                <div className="mb-3 pb-3 border-b border-gray-300">
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Paid To</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-[28px] text-black">{formData.paidTo || '\u00A0'}</span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-7 text-black">{formData.paidTo || '\u00A0'}</span>
                   </div>
-                </div>
-
-                <div className="mb-3 pb-3 border-b border-gray-300">
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Being</span>
                     <span className="text-sm py-1 border-b border-gray-800 min-h-[50px] whitespace-pre-wrap text-black">{formData.being || '\u00A0'}</span>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4 mb-3 pb-3 border-b border-gray-300">
-                  <div className="flex flex-col">
-                    <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">KSHS</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-[28px] text-black">{formData.kshs || '\u00A0'}</span>
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">A/C Code</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-[28px] text-black">{formData.acCode || '\u00A0'}</span>
-                  </div>
-                </div>
-
-                {/* Prepared By and Date */}
-                <div className="grid grid-cols-2 gap-4 mb-3 pb-3 border-b border-gray-300">
-                  <div className="flex flex-col">
-                    <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Prepared By</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-[28px] text-black">{formData.preparedBy || '\u00A0'}</span>
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Date</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-[28px] text-black">{formData.preparedDate || '\u00A0'}</span>
-                  </div>
-                </div>
-
+                {/* KSHS, Cheque No., Bank */}
                 <div className="grid grid-cols-3 gap-4 mb-3 pb-3 border-b border-gray-300">
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Checked By</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-[28px] text-black">{formData.checkedBy || '\u00A0'}</span>
+                    <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">KSHS</span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-7 text-black">{formData.kshs || '\u00A0'}</span>
                   </div>
-                  <div className="flex flex-col">
-                    <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Posted By</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-[28px] text-black">{formData.postedBy || '\u00A0'}</span>
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Date</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-[28px] text-black">{formData.postedDate || '\u00A0'}</span>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-4 gap-4">
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Cheque No.</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-[28px] text-black">{formData.chequeNo || '\u00A0'}</span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-7 text-black">{formData.chequeNo || '\u00A0'}</span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Bank</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-[28px] text-black">{formData.bank || '\u00A0'}</span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-7 text-black">{formData.bank || '\u00A0'}</span>
+                  </div>
+                </div>
+
+                {/* Prepared By, Checked By, Approved By */}
+                <div className="grid grid-cols-3 gap-4 mb-3 pb-3 border-b border-gray-300">
+                  <div className="flex flex-col">
+                    <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Prepared By</span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-7 text-black">{formData.preparedBy || '\u00A0'}</span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Checked By</span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-7 text-black">{formData.checkedBy || '\u00A0'}</span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Approved By</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-[28px] text-black">{formData.approvedBy || '\u00A0'}</span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-7 text-black">{formData.approvedBy || '\u00A0'}</span>
+                  </div>
+                </div>
+
+                {/* Dates for Prepared, Checked, Approved */}
+                <div className="grid grid-cols-3 gap-4 mb-3 pb-3 border-b border-gray-300">
+                  <div className="flex flex-col">
+                    <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Date</span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-7 text-black">{formData.preparedDate || '\u00A0'}</span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Date</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-[28px] text-black">{formData.approvedDate || '\u00A0'}</span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-7 text-black">{formData.postedDate || '\u00A0'}</span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Date</span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-7 text-black">{formData.approvedDate || '\u00A0'}</span>
+                  </div>
+                </div>
+
+                {/* A/C Code, Posted By, Date */}
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="flex flex-col">
+                    <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">A/C Code</span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-7 text-black">{formData.acCode || '\u00A0'}</span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Posted By</span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-7 text-black">{formData.postedBy || '\u00A0'}</span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Date</span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-7 text-black">{formData.postedDate || '\u00A0'}</span>
                   </div>
                 </div>
               </div>
