@@ -347,7 +347,7 @@ export default function PaymentVoucher() {
                 </div>
 
                 {/* Head of Account, Paid To, Being */}
-                <div className="mb-3 pb-3 border-b border-gray-300 gap-4 flex flex-col">
+                <div className="mb-3 pb-3 gap-4 flex flex-col">
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Head of Account</span>
                     <span className="text-sm py-1 border-b border-gray-800 min-h-7 text-black">{formData.headOfAccount || '\u00A0'}</span>
@@ -363,7 +363,7 @@ export default function PaymentVoucher() {
                 </div>
 
                 {/* KSHS, Cheque No., Bank */}
-                <div className="grid grid-cols-3 gap-4 mb-3 pb-3 border-b border-gray-300">
+                <div className="grid grid-cols-3 gap-4 mb-3 pb-3">
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">KSHS</span>
                     <span className="text-sm py-1 border-b border-gray-800 min-h-7 text-black">{formData.kshs || '\u00A0'}</span>
@@ -379,7 +379,7 @@ export default function PaymentVoucher() {
                 </div>
 
                 {/* Prepared By, Checked By, Approved By */}
-                <div className="grid grid-cols-3 gap-4 mb-3 pb-3 border-b border-gray-300">
+                <div className="grid grid-cols-3 gap-4 mb-3 pb-3">
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Prepared By</span>
                     <span className="text-sm py-1 border-b border-gray-800 min-h-7 text-black">{formData.preparedBy || '\u00A0'}</span>
@@ -395,7 +395,7 @@ export default function PaymentVoucher() {
                 </div>
 
                 {/* Dates for Prepared, Checked, Approved */}
-                <div className="grid grid-cols-3 gap-4 mb-3 pb-3 border-b border-gray-300">
+                <div className="grid grid-cols-3 gap-4 mb-3 pb-3">
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Date</span>
                     <span className="text-sm py-1 border-b border-gray-800 min-h-7 text-black">{formData.preparedDate || '\u00A0'}</span>
