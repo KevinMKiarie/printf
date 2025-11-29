@@ -69,9 +69,13 @@ export default function PaymentVoucher() {
               }
             }
             .voucher-half-page {
-              max-height: 130mm;
               height: auto;
               page-break-after: always;
+            }
+            @media screen {
+              .voucher-half-page {
+                max-height: none;
+              }
             }
           </style>
         </head>
@@ -112,9 +116,13 @@ export default function PaymentVoucher() {
       }
     }
     .voucher-half-page {
-      max-height: 130mm;
       height: auto;
       page-break-after: always;
+    }
+    @media screen {
+      .voucher-half-page {
+        max-height: none;
+      }
     }
   </style>
 </head>
@@ -323,7 +331,7 @@ export default function PaymentVoucher() {
             <div className="bg-white rounded-lg shadow-lg p-6">
               <h2 className="text-xl font-semibold mb-4 text-gray-800">Print Preview</h2>
 
-              <div ref={printRef} className="border-2 border-black p-4 bg-white">
+              <div ref={printRef} className="border-2 border-black p-4 bg-white overflow-auto">
                 <h2 className="text-center text-xl font-bold mb-4 tracking-[4px] text-black">PAYMENT VOUCHER</h2>
 
                 {/* Voucher No. and Date */}
@@ -350,7 +358,7 @@ export default function PaymentVoucher() {
                   </div>
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Being</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-[50px] whitespace-pre-wrap text-black">{formData.being || '\u00A0'}</span>
+                    <span className="text-sm py-2 border-b border-gray-800 min-h-[50px] whitespace-pre-wrap break-words text-black leading-relaxed">{formData.being || '\u00A0'}</span>
                   </div>
                 </div>
 
