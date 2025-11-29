@@ -334,7 +334,6 @@ export default function PaymentVoucher() {
               <div ref={printRef} className="border-2 border-black p-4 bg-white overflow-auto">
                 <h2 className="text-center text-xl font-bold mb-4 tracking-[4px] text-black">PAYMENT VOUCHER</h2>
 
-                {/* Voucher No. and Date */}
                 <div className="grid grid-cols-2 gap-4 mb-3 pb-3">
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Voucher No.</span>
@@ -346,7 +345,6 @@ export default function PaymentVoucher() {
                   </div>
                 </div>
 
-                {/* Head of Account, Paid To, Being */}
                 <div className="mb-3 pb-3 gap-4 flex flex-col">
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Head of Account</span>
@@ -362,7 +360,6 @@ export default function PaymentVoucher() {
                   </div>
                 </div>
 
-                {/* KSHS, Cheque No., Bank */}
                 <div className="grid grid-cols-3 gap-4 mb-3 pb-3">
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">KSHS</span>
@@ -378,7 +375,6 @@ export default function PaymentVoucher() {
                   </div>
                 </div>
 
-                {/* Prepared By, Checked By, Approved By */}
                 <div className="grid grid-cols-3 gap-4 mb-3 pb-3">
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Prepared By</span>
@@ -394,7 +390,6 @@ export default function PaymentVoucher() {
                   </div>
                 </div>
 
-                {/* Dates for Prepared, Checked, Approved */}
                 <div className="grid grid-cols-3 gap-4 mb-3 pb-3">
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Date</span>
@@ -410,7 +405,6 @@ export default function PaymentVoucher() {
                   </div>
                 </div>
 
-                {/* A/C Code, Posted By, Date */}
                 <div className="grid grid-cols-3 gap-4">
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">A/C Code</span>
