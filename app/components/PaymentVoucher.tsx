@@ -356,7 +356,7 @@ export default function PaymentVoucher() {
                   </div>
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold mb-1 text-gray-600 uppercase tracking-wider">Being</span>
-                    <span className="text-sm py-2 border-b border-gray-800 min-h-[50px] whitespace-pre-wrap break-words text-black leading-relaxed">{formData.being || '\u00A0'}</span>
+                    <span className="text-sm border-b-[1px] border-black py-2  min-h-[50px] whitespace-pre-wrap break-words text-black leading-relaxed">{formData.being || '\u00A0'}</span>
                   </div>
                 </div>
 
