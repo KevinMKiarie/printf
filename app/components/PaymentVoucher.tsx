@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useState, useRef } from 'react';
+import { useState, useRef } from "react";
 
 interface VoucherData {
   voucherNo: string;
@@ -22,21 +22,21 @@ interface VoucherData {
 
 export default function PaymentVoucher() {
   const [formData, setFormData] = useState<VoucherData>({
-    voucherNo: '',
-    headOfAccount: '',
-    paidTo: '',
-    being: '',
-    kshs: '',
-    preparedBy: '',
-    preparedDate: '',
-    acCode: '',
-    postedBy: '',
-    postedDate: '',
-    checkedBy: '',
-    chequeNo: '',
-    bank: '',
-    approvedBy: '',
-    approvedDate: '',
+    voucherNo: "",
+    headOfAccount: "",
+    paidTo: "",
+    being: "",
+    kshs: "",
+    preparedBy: "",
+    preparedDate: "",
+    acCode: "",
+    postedBy: "",
+    postedDate: "",
+    checkedBy: "",
+    chequeNo: "",
+    bank: "",
+    approvedBy: "",
+    approvedDate: "",
   });
 
   const printRef = useRef<HTMLDivElement>(null);
@@ -49,13 +49,13 @@ export default function PaymentVoucher() {
     const printContent = printRef.current;
     if (!printContent) return;
 
-    const printWindow = window.open('', '_blank');
+    const printWindow = window.open("", "_blank");
     if (!printWindow) return;
 
     printWindow.document.write(`
       <html>
         <head>
-          <title>Payment Voucher - ${formData.voucherNo || 'New'}</title>
+          <title>Payment Voucher - ${formData.voucherNo || "New"}</title>
           <script src="https://cdn.tailwindcss.com"></script>
           <style>
             @media print {
@@ -114,7 +114,7 @@ export default function PaymentVoucher() {
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Payment Voucher - ${formData.voucherNo || 'New'}</title>
+  <title>Payment Voucher - ${formData.voucherNo || "New"}</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @media print {
@@ -162,11 +162,11 @@ export default function PaymentVoucher() {
 </body>
 </html>`;
 
-    const blob = new Blob([content], { type: 'text/html' });
+    const blob = new Blob([content], { type: "text/html" });
     const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
+    const a = document.createElement("a");
     a.href = url;
-    a.download = `payment-voucher-${formData.voucherNo || 'new'}.html`;
+    a.download = `payment-voucher-${formData.voucherNo || "new"}.html`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -176,51 +176,67 @@ export default function PaymentVoucher() {
   return (
     <div className="min-h-screen bg-gray-50 p-4 md:p-8">
       <div className="max-w-[95%] mx-auto">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">Payment Voucher Form</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-8">
+          Payment Voucher Form
+        </h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="bg-white rounded-lg shadow-lg p-6">
-            <h2 className="text-xl font-semibold mb-6 text-gray-800">Fill Form Details</h2>
+            <h2 className="text-xl font-semibold mb-6 text-gray-800">
+              Fill Form Details
+            </h2>
 
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 ">Voucher No.</label>
+                <label className="block text-sm font-medium text-gray-700 ">
+                  Voucher No.
+                </label>
                 <input
                   type="text"
                   value={formData.voucherNo}
-                  onChange={(e) => handleInputChange('voucherNo', e.target.value)}
+                  onChange={(e) =>
+                    handleInputChange("voucherNo", e.target.value)
+                  }
                   className="w-full px-3 py-2 border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Enter voucher number"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 ">Head of Account</label>
+                <label className="block text-sm font-medium text-gray-700 ">
+                  Head of Account
+                </label>
                 <input
                   type="text"
                   value={formData.headOfAccount}
-                  onChange={(e) => handleInputChange('headOfAccount', e.target.value)}
+                  onChange={(e) =>
+                    handleInputChange("headOfAccount", e.target.value)
+                  }
                   className="w-full px-3 py-2 border border-gray-300 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Enter head of account"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 ">Paid To</label>
+                <label className="block text-sm font-medium text-gray-700 ">
+                  Paid To
+                </label>
                 <input
                   type="text"
                   value={formData.paidTo}
-                  onChange={(e) => handleInputChange('paidTo', e.target.value)}
+                  onChange={(e) => handleInputChange("paidTo", e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Enter payee name"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 ">Being</label>
+                <label className="block text-sm font-medium text-gray-700 ">
+                  Being
+                </label>
                 <textarea
                   value={formData.being}
-                  onChange={(e) => handleInputChange('being', e.target.value)}
+                  onChange={(e) => handleInputChange("being", e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-blue-500"
                   placeholder="Enter description"
                   rows={3}
@@ -228,11 +244,13 @@ export default function PaymentVoucher() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 ">Amount (KSHS)</label>
+                <label className="block text-sm font-medium text-gray-700 ">
+                  Amount (KSHS)
+                </label>
                 <input
                   type="text"
                   value={formData.kshs}
-                  onChange={(e) => handleInputChange('kshs', e.target.value)}
+                  onChange={(e) => handleInputChange("kshs", e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Enter amount"
                 />
@@ -240,32 +258,42 @@ export default function PaymentVoucher() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 ">Prepared By</label>
+                  <label className="block text-sm font-medium text-gray-700 ">
+                    Prepared By
+                  </label>
                   <input
                     type="text"
                     value={formData.preparedBy}
-                    onChange={(e) => handleInputChange('preparedBy', e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("preparedBy", e.target.value)
+                    }
                     className="w-full px-3 py-2 border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Name"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 ">Date</label>
+                  <label className="block text-sm font-medium text-gray-700 ">
+                    Date
+                  </label>
                   <input
                     type="date"
                     value={formData.preparedDate}
-                    onChange={(e) => handleInputChange('preparedDate', e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("preparedDate", e.target.value)
+                    }
                     className="w-full px-3 py-2 border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 ">A/C Code</label>
+                <label className="block text-sm font-medium text-gray-700 ">
+                  A/C Code
+                </label>
                 <input
                   type="text"
                   value={formData.acCode}
-                  onChange={(e) => handleInputChange('acCode', e.target.value)}
+                  onChange={(e) => handleInputChange("acCode", e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Enter account code"
                 />
@@ -273,32 +301,44 @@ export default function PaymentVoucher() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 ">Posted By</label>
+                  <label className="block text-sm font-medium text-gray-700 ">
+                    Posted By
+                  </label>
                   <input
                     type="text"
                     value={formData.postedBy}
-                    onChange={(e) => handleInputChange('postedBy', e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("postedBy", e.target.value)
+                    }
                     className="w-full px-3 py-2 border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Name"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 ">Date</label>
+                  <label className="block text-sm font-medium text-gray-700 ">
+                    Date
+                  </label>
                   <input
                     type="date"
                     value={formData.postedDate}
-                    onChange={(e) => handleInputChange('postedDate', e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("postedDate", e.target.value)
+                    }
                     className="w-full px-3 py-2 border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 ">Checked By</label>
+                <label className="block text-sm font-medium text-gray-700 ">
+                  Checked By
+                </label>
                 <input
                   type="text"
                   value={formData.checkedBy}
-                  onChange={(e) => handleInputChange('checkedBy', e.target.value)}
+                  onChange={(e) =>
+                    handleInputChange("checkedBy", e.target.value)
+                  }
                   className="w-full px-3 py-2 border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Enter checker name"
                 />
@@ -306,21 +346,27 @@ export default function PaymentVoucher() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 ">Cheque No.</label>
+                  <label className="block text-sm font-medium text-gray-700 ">
+                    Cheque No.
+                  </label>
                   <input
                     type="text"
                     value={formData.chequeNo}
-                    onChange={(e) => handleInputChange('chequeNo', e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("chequeNo", e.target.value)
+                    }
                     className="w-full px-3 py-2 border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Cheque number"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 ">Bank</label>
+                  <label className="block text-sm font-medium text-gray-700 ">
+                    Bank
+                  </label>
                   <input
                     type="text"
                     value={formData.bank}
-                    onChange={(e) => handleInputChange('bank', e.target.value)}
+                    onChange={(e) => handleInputChange("bank", e.target.value)}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Bank name"
                   />
@@ -329,21 +375,29 @@ export default function PaymentVoucher() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 ">Approved By</label>
+                  <label className="block text-sm font-medium text-gray-700 ">
+                    Approved By
+                  </label>
                   <input
                     type="text"
                     value={formData.approvedBy}
-                    onChange={(e) => handleInputChange('approvedBy', e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("approvedBy", e.target.value)
+                    }
                     className="w-full px-3 py-2 border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Name"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 ">Date</label>
+                  <label className="block text-sm font-medium text-gray-700 ">
+                    Date
+                  </label>
                   <input
                     type="date"
                     value={formData.approvedDate}
-                    onChange={(e) => handleInputChange('approvedDate', e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("approvedDate", e.target.value)
+                    }
                     className="w-full px-3 py-2 border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
@@ -353,92 +407,167 @@ export default function PaymentVoucher() {
 
           <div className="space-y-4">
             <div className="bg-white rounded-lg shadow-lg p-6">
-              <h2 className="text-xl font-semibold mb-4 text-gray-800">Print Preview</h2>
+              <h2 className="text-xl font-semibold mb-4 text-gray-800">
+                Print Preview
+              </h2>
 
-              <div ref={printRef} className="voucher-content border-2 border-black p-2 bg-white overflow-auto">
-                <h2 className="text-center text-xl font-bold mb-3 tracking-[4px] text-black">PAYMENT VOUCHER</h2>
+              <div
+                ref={printRef}
+                className="voucher-content border-2 border-black p-2 bg-white overflow-auto"
+              >
+                <h2 className="text-center text-xl font-bold mb-3 tracking-[4px] text-black">
+                  PAYMENT VOUCHER
+                </h2>
                 <div className="grid grid-cols-2 gap-3 mb-2 pb-1">
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">Voucher No.</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">{formData.voucherNo || '\u00A0'}</span>
+                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">
+                      Voucher No.
+                    </span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">
+                      {formData.voucherNo || "\u00A0"}
+                    </span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">Date</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">{formData.preparedDate || '\u00A0'}</span>
+                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">
+                      Date
+                    </span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">
+                      {formData.preparedDate || "\u00A0"}
+                    </span>
                   </div>
                 </div>
                 <div className="mb-2 pb-1 gap-3 flex flex-col">
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">Head of Account</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">{formData.headOfAccount || '\u00A0'}</span>
+                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">
+                      Head of Account
+                    </span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">
+                      {formData.headOfAccount || "\u00A0"}
+                    </span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">Paid To</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">{formData.paidTo || '\u00A0'}</span>
+                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">
+                      Paid To
+                    </span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">
+                      {formData.paidTo || "\u00A0"}
+                    </span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">Being</span>
-                    <span className="text-sm border-b border-black py-1 min-h-[40px] whitespace-pre-wrap wrap-break-word text-black leading-snug">{formData.being || '\u00A0'}</span>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-3 gap-3 mb-2 pb-1">
-                  <div className="flex flex-col">
-                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">KSHS</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">{formData.kshs || '\u00A0'}</span>
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">Cheque No.</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">{formData.chequeNo || '\u00A0'}</span>
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">Bank</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">{formData.bank || '\u00A0'}</span>
+                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">
+                      Being
+                    </span>
+                    <span className="text-sm border-b border-black py-1 min-h-[40px] whitespace-pre-wrap wrap-break-word text-black leading-snug">
+                      {formData.being || "\u00A0"}
+                    </span>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-3 gap-3 mb-2 pb-1">
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">Prepared By</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">{formData.preparedBy || '\u00A0'}</span>
+                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">
+                      KSHS
+                    </span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">
+                      {formData.kshs || "\u00A0"}
+                    </span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">Checked By</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">{formData.checkedBy || '\u00A0'}</span>
+                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">
+                      Cheque No.
+                    </span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">
+                      {formData.chequeNo || "\u00A0"}
+                    </span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">Approved By</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">{formData.approvedBy || '\u00A0'}</span>
+                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">
+                      Bank
+                    </span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">
+                      {formData.bank || "\u00A0"}
+                    </span>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-3 gap-3 mb-2 pb-1">
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">Date</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">{formData.preparedDate || '\u00A0'}</span>
+                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">
+                      Prepared By
+                    </span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">
+                      {formData.preparedBy || "\u00A0"}
+                    </span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">Date</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">{formData.postedDate || '\u00A0'}</span>
+                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">
+                      Checked By
+                    </span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">
+                      {formData.checkedBy || "\u00A0"}
+                    </span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">Date</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">{formData.approvedDate || '\u00A0'}</span>
+                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">
+                      Approved By
+                    </span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">
+                      {formData.approvedBy || "\u00A0"}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-3 gap-3 mb-2 pb-1">
+                  <div className="flex flex-col">
+                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">
+                      Date
+                    </span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">
+                      {formData.preparedDate || "\u00A0"}
+                    </span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">
+                      Date
+                    </span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">
+                      {formData.postedDate || "\u00A0"}
+                    </span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">
+                      Date
+                    </span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">
+                      {formData.approvedDate || "\u00A0"}
+                    </span>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-3 gap-3">
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">A/C Code</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">{formData.acCode || '\u00A0'}</span>
+                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">
+                      A/C Code
+                    </span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">
+                      {formData.acCode || "\u00A0"}
+                    </span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">Posted By</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">{formData.postedBy || '\u00A0'}</span>
+                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">
+                      Posted By
+                    </span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">
+                      {formData.postedBy || "\u00A0"}
+                    </span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">Date</span>
-                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">{formData.postedDate || '\u00A0'}</span>
+                    <span className="text-[10px] font-bold  text-gray-600 uppercase tracking-wider">
+                      Date
+                    </span>
+                    <span className="text-sm py-1 border-b border-gray-800 min-h-6 text-black">
+                      {formData.postedDate || "\u00A0"}
+                    </span>
                   </div>
                 </div>
               </div>
